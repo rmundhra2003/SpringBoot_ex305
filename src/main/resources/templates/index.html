@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student and course list</title>
+</head>
+<body>
+
+<div th:each="student : ${students}">
+    <h2> Student name : </h2><b th:text="${student.firstname}"> </b> <b th:text="${student.lastname}"></b>
+    <ul>
+        <th:block th:each="course :${student.courses}">
+            <h2> Course name: </h2><li th:inline="text"><b> [[${course.coursename}]]</b>
+            <p><h2> Description</h2></p><p th:text="${course.description}" ></p>
+            </li>
+
+        </th:block>
+
+    </ul>
+
+
+</div>
+
+</body>
+</html>
